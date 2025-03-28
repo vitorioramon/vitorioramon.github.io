@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>by Vitório Ramon</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <header class="fixed-top bg-body shadow-sm py-2">
+        <div class="container d-flex justify-content-between align-items-center">
+            <span class="fw-bold">bit.app.br</span>
+
+            <div class="d-flex align-items-center gap-2">
+                <button id="themeToggle" class="btn btn-sm">
+                    ☀️ Modo Claro
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow-1 overflow-auto">
+        <div class="container d-flex flex-column justify-content-center min-vh-100">
+            <div class="row justify-content-center">
+                <div class="card shadow-sm col-8">
+                    <div class="row g-0">
+                        <div class="col-4">
+                            <img src="img/ramon.png" class="img-fluid rounded-circle" alt="...">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Olá, seja bem vindo!</h5>
+                                <div class="card-body">
+                                    <span class="card-text">Meu nome é Vitório Ramon, esse domínio foi criado para
+                                        facilitar as publicações de sistemas sem concorrência de nome já
+                                        registrado.</span>
+                                    <div class="g-0">
+                                        <ul class="list-group list-group-flush">
+                                            <li
+                                                class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="ms-2 me-auto">
+                                                    <div class="fw-bold"><a href="https://verum.bit.app.br"
+                                                            target="_blank"
+                                                            rel="noopener noreferrer">verum.bit.app.br</a></div>
+                                                    Verum - Prestação de Contas para Paróquias
+                                                </div>
+                                            </li>
+                                            <li
+                                                class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="ms-2 me-auto">
+                                                    <div class="fw-bold"><a href="https://surpresa.bit.app.br"
+                                                            target="_blank"
+                                                            rel="noopener noreferrer">surpresa.bit.app.br</a></div>
+                                                    Surpresa - Surpreenda alguém especial com fotos e vídeos
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p>Caso necessite, entre em contato
+                                            <a href="mailto:vitorioramon@gmail.com" class="card-text"><small
+                                                class="text-body-secondary">vitorioramon@gmail.com</small></a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="fixed-bottom bg-body text-center py-2">
+        <span>by Vitório Ramon</span>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById("themeToggle");
+        const htmlElement = document.documentElement;
+
+        function toggleTheme() {
+            const currentTheme = htmlElement.getAttribute("data-bs-theme");
+            const newTheme = currentTheme === "dark" ? "light" : "dark";
+            htmlElement.setAttribute("data-bs-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+            themeToggle.textContent = newTheme === "dark" ? "☀️ Modo Claro" : "🌙 Modo Escuro";
+        }
+
+        // Carregar o tema salvo no LocalStorage
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedTheme = localStorage.getItem("theme") || "dark";
+            htmlElement.setAttribute("data-bs-theme", savedTheme);
+            themeToggle.textContent = savedTheme === "dark" ? "☀️ Modo Claro" : "🌙 Modo Escuro";
+        });
+
+        themeToggle.addEventListener("click", toggleTheme);
+    </script>
+</body>
+
+</html>
